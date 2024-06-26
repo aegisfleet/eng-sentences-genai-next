@@ -13,7 +13,8 @@ export default function Home() {
     setContent('');
     try {
       const response = await generateContent();
-      setContent(marked(response));
+      const markedContent = await marked(response);
+      setContent(markedContent);
     } catch (error) {
       console.error('Error:', error);
       setContent('<p>エラーが発生しました。もう一度お試しください。</p>');
