@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="256" fill="#2196F3"/>
+  <path d="M256 256 L512 256 A256 256 0 0 1 256 512 Z" fill="#FFC107"/>
+  <path d="M256 256 L256 0 A256 256 0 0 1 512 256 Z" fill="#FF5722"/>
+  <text x="256" y="180" font-family="Arial, sans-serif" font-size="160" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#ffffff">AI</text>
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="130" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#ffffff">英文</text>
+</svg>
