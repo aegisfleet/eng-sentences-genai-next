@@ -12,7 +12,16 @@ Webページにアクセスすると自動的に英文が生成されます。�
 
 ## インストール方法
 
-このアプリケーションはWebアプリケーションですので、インストールは不要です。
+本アプリを動作させるためにはGeminiのAPIキーが必要になります。  
+[Google AI Studio](https://ai.google.dev/gemini-api?hl=ja)でAPIキーを発行して使用してください。
+
+```text
+git clone https://github.com/aegisfleet/eng-sentences-genai-next.git
+cd eng-sentences-genai-next
+echo GEMINI_API_KEY=your_api_key_here > .env.local
+npm install marked
+npm run dev
+```
 
 ## デプロイ
 
