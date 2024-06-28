@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import { generateContent } from '../utils/api';
 import { marked } from 'marked';
 import styles from '../styles/Home.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   const [content, setContent] = useState('');
@@ -36,6 +37,9 @@ export default function Home() {
           新しい英文を生成
         </button>
       </div>
+      <Link href="/instructions" className={styles.instructionsLink}>
+        アプリの使い方
+      </Link>
     </Layout>
   );
 }

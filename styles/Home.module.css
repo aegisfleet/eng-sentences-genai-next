@@ -91,3 +91,11 @@
     background-color: #cccccc;
     cursor: not-allowed;
 }
+
+.instructionsLink {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #4CAF50;
+    text-decoration: underline;
+}
