@@ -86,22 +86,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const response = await fetch(`${API_URL}?key=${API_KEY}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
     });
 
-    if (!response.ok) {
-      throw new Error('API request failed');
-    }
+    if (!response.ok) throw new Error('API request failed');
 
     const data = await response.json();
-    const content = data.candidates[0].content.parts[0].text;
-
-    res.status(200).json({ content });
+    res.status(200).json({ content: data.candidates[0].content.parts[0].text });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ message: 'Internal Server Error' });

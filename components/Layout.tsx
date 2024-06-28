@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
       </Head>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          <img src="logo.svg" alt="AIランダム英文生成アプリ" className={styles.logo} />
+          <img src="/logo.svg" alt="AIランダム英文生成アプリ" className={styles.logo} />
         </h1>
         {children}
       </div>
