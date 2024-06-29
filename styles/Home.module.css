@@ -69,8 +69,37 @@
 .buttonContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 20px;
+    gap: 20px;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.favoriteButton {
+    background-color: #ff9800;  /* オレンジ */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.favoriteButton:hover {
+    background-color: #f57c00;  /* 少し濃いオレンジ */
 }
 
 .button {
@@ -82,9 +111,10 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 4px;
+    height: 40px;
+    line-height: 20px;
 }
 
 .button:disabled {

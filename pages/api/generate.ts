@@ -8,7 +8,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
+  const { difficulty } = req.body;
+
   const prompt = `ランダムな日本語を作成し、その日本語に対して意味は同じだが言い回しが異なる英文を5つ作成して欲しい。
+難易度は${difficulty}レベルとする。
 出来上がった英文に日本語訳を付けて1つ目の英文と比較してどこが違うのか解説する。
 この際、英語の熟語についての使い方を説明に盛り込む。
 使用した熟語のうちひとつを選択して英文の穴埋め問題を作成し、最後に正解を記載する。

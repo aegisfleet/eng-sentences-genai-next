@@ -1,0 +1,27 @@
+.favoriteButton {
+    background-color: #ffd700;  /* 黄色 */
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.favoriteButton:hover {
+    background-color: #ffc800;  /* 少し濃い黄色 */
+}
+
+.favoriteButton.active {
+    background-color: #ffb300;  /* アクティブ時はさらに濃い黄色 */
+    color: #333;
+}
+
+.favoriteButton.active:hover {
+    background-color: #ffa000;
+}
