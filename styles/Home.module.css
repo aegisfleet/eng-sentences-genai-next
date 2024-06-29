@@ -115,11 +115,20 @@
     border-radius: 4px;
     height: 40px;
     line-height: 20px;
+    transition: background-color 0.3s;  /* トランジション効果を追加 */
+}
+
+.button:hover {
+    background-color: #45a049;  /* ホバー時の背景色 */
 }
 
 .button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+}
+
+.button:disabled:hover {
+    background-color: #cccccc;  /* 無効時はホバー効果を適用しない */
 }
 
 .instructionsLink {

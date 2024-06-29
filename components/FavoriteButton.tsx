@@ -4,9 +4,10 @@ import styles from '../styles/FavoriteButton.module.css';
 
 interface FavoriteButtonProps {
   content: string;
+  isDisabled: boolean;
 }
 
-const FavoriteButton: React.FC<FavoriteButtonProps> = ({ content }) => {
+const FavoriteButton: React.FC<FavoriteButtonProps> = ({ content, isDisabled }) => {
   const { favorites, addFavorite, removeFavorite } = useFavorites();
   const isFavorite = favorites.includes(content);
 
@@ -19,7 +20,11 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ content }) => {
   };
 
   return (
-    <button className={`${styles.favoriteButton} ${isFavorite ? styles.active : ''}`} onClick={handleClick}>
+    <button 
+      className={`${styles.favoriteButton} ${isFavorite ? styles.active : ''} ${isDisabled ? styles.disabled : ''}`} 
+      onClick={handleClick}
+      disabled={isDisabled}
+    >
       {isFavorite ? '★ お気に入りから削除' : '☆ お気に入りに追加'}
     </button>
   );

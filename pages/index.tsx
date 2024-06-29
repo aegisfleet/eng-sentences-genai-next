@@ -45,10 +45,6 @@ export default function Home() {
     setIsLoading(false);
   };
 
-  const handleDifficultyChange = (newDifficulty: string) => {
-    setDifficulty(newDifficulty);
-  };
-
   return (
     <Layout>
       <p className={styles.instruction}>新しい英文を生成するには、下部の「新しい英文を生成」ボタンをクリックしてください。</p>
@@ -60,13 +56,13 @@ export default function Home() {
       )}
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={styles.buttonGroup}>
-        <FavoriteButton content={content} />
+        <FavoriteButton content={content} isDisabled={isLoading || content === ''} />
         <Link href="/favorites" className={styles.favoriteButton}>
           お気に入りを見る
         </Link>
       </div>
       <div className={styles.buttonContainer}>
-        <DifficultySelector difficulty={difficulty} setDifficulty={handleDifficultyChange} />
+        <DifficultySelector difficulty={difficulty} setDifficulty={setDifficulty} />
         <button className={styles.button} onClick={handleGenerateContent} disabled={isLoading}>
           新しい英文を生成
         </button>
