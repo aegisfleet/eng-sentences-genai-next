@@ -10,7 +10,25 @@ import DifficultySelector from '../components/DifficultySelector';
 export default function Home() {
   const [content, setContent] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [difficulty, setDifficulty] = useState('hard');
+  const [difficulty, setDifficulty] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('difficulty') || 'hard';
+    }
+    return 'hard';
+  });
+
+  useEffect(() => {
+    const savedContent = localStorage.getItem('lastGeneratedContent');
+    if (savedContent) {
+      setContent(savedContent);
+    } else {
+      handleGenerateContent();
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('difficulty', difficulty);
+  }, [difficulty]);
 
   const handleGenerateContent = async () => {
     setIsLoading(true);
@@ -19,6 +37,7 @@ export default function Home() {
       const response = await generateContent(difficulty);
       const markedContent = await marked(response);
       setContent(markedContent);
+      localStorage.setItem('lastGeneratedContent', markedContent);
     } catch (error) {
       console.error('Error:', error);
       setContent('<p>エラーが発生しました。もう一度お試しください。</p>');
@@ -26,14 +45,19 @@ export default function Home() {
     setIsLoading(false);
   };
 
-  useEffect(() => {
-    handleGenerateContent();
-  }, []);
+  const handleDifficultyChange = (newDifficulty: string) => {
+    setDifficulty(newDifficulty);
+  };
 
   return (
     <Layout>
       <p className={styles.instruction}>新しい英文を生成するには、下部の「新しい英文を生成」ボタンをクリックしてください。</p>
-      {isLoading && <div className={styles.loading}>生成中...</div>}
+      {isLoading && (
+        <div className={styles.loading}>
+          <div className={styles.loadingIcon}></div>
+          生成中...
+        </div>
+      )}
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
       <div className={styles.buttonGroup}>
         <FavoriteButton content={content} />
@@ -42,7 +66,7 @@ export default function Home() {
         </Link>
       </div>
       <div className={styles.buttonContainer}>
-        <DifficultySelector difficulty={difficulty} setDifficulty={setDifficulty} />
+        <DifficultySelector difficulty={difficulty} setDifficulty={handleDifficultyChange} />
         <button className={styles.button} onClick={handleGenerateContent} disabled={isLoading}>
           新しい英文を生成
         </button>

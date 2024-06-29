@@ -7,7 +7,7 @@ export default function Instructions() {
     <Layout>
       <div className={styles.container}>
         <h1 className={styles.title}>アプリの使い方</h1>
-        
+
         <section className={styles.section}>
           <h2>1. アプリへのアクセス</h2>
           <p>ブラウザで<a href="https://eng-sentences-genai-next.vercel.app/" target="_blank" rel="noopener noreferrer">https://eng-sentences-genai-next.vercel.app/</a>にアクセスしてください。</p>
