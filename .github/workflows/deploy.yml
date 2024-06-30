@@ -14,10 +14,6 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Create .env.local file
-        run: |
-          echo GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} > .env.local
-
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
