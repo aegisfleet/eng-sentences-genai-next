@@ -20,7 +20,7 @@ export default function Instructions() {
 
         <section className={styles.section}>
           <h2>3. 難易度の設定</h2>
-          <p>画面下部の「難易度」セレクターから、以下の3つのレベルを選択できます：</p>
+          <p>画面下部の「難易度」セレクターから、以下の4つのレベルを選択できます：</p>
           <ul>
             <li>小学生</li>
             <li>中学生</li>
